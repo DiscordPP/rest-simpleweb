@@ -1,2 +1,1 @@
-# plugin-template
-A template for building Discord++ plugins
+# REST: Simple-Web-Server
