@@ -10,12 +10,12 @@ namespace discordpp {
 using HttpsClient = SimpleWeb::Client<SimpleWeb::HTTPS>;
 
 template <class BASE> class RestSimpleWeb : public BASE, virtual BotStruct {
-    std::unique_ptr<boost::asio::steady_timer> retry_;
+    std::unique_ptr<asio::steady_timer> retry_;
     std::unique_ptr<HttpsClient> client_;
 
   public:
     void initBot(unsigned int apiVersionIn, const std::string &tokenIn,
-                 std::shared_ptr<boost::asio::io_context> aiocIn) override {
+                 std::shared_ptr<asio::io_context> aiocIn) override {
         BASE::initBot(apiVersionIn, tokenIn, aiocIn);
         client_ = std::make_unique<HttpsClient>("discordapp.com:443");
         client_->io_service = aiocIn;
