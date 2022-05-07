@@ -17,7 +17,7 @@ template <class BASE> class RestSimpleWeb : public BASE, virtual BotStruct {
     void initBot(unsigned int apiVersionIn, const std::string &tokenIn,
                  std::shared_ptr<asio::io_context> aiocIn) override {
         BASE::initBot(apiVersionIn, tokenIn, aiocIn);
-        client_ = std::make_unique<HttpsClient>("discordapp.com:443");
+        client_ = std::make_unique<HttpsClient>("discord.com:443");
         client_->io_service = aiocIn;
     }
     void doCall(sptr<RenderedCall> call) override {
