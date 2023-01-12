@@ -24,7 +24,7 @@ template <class BASE> class RestSimpleWeb : public BASE, virtual BotStruct {
         std::ostringstream targetss;
         targetss << "/api/v" << apiVersion << *call->target;
         auto target = targetss.str();
-        SimpleWeb::CaseInsensitiveMultimap headers{{"authorization", token},{"X-RateLimit-Precision", "millisecond"}};
+        SimpleWeb::CaseInsensitiveMultimap headers{{"authorization", token},{"X-RateLimit-Precision", "millisecond"}, {"User-Agent", user_agent_}};
         if (call->type) {
             headers.insert({"Content-Type", *call->type});
         }
